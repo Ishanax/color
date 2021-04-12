@@ -4,12 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="stylesheet" href="./styles.css">
 
   <title>Color tool</title>
 </head>
 <body>
-  <h1>Lighten/Darken Color</h1>
+  <div class="container">
+  
+    <h1 class="title"> Color Lighten/Darken</h1>
+  
+<!-- Fill hex color in -->
+  <div class="divs">
+    <label for="hex">Color (Hex)</label>
+    <input type="text" name="hex" id="hex_input" placeholder="#000000">
+  </div>
+
+<!-- Toggle bar/slider for lighten or darken -->
+  <div class="divs">   
+    <input type="checkbox" id="switch" class="checkbox"/>
+        <label for="switch" class="toggle">Darken</label>     
+  </div>
+
+<!-- Choose percentage on a progress bar of lighter or darker -->
+  <div class="divs" id="div_percentage">
+    <label for="percentage" id="percentage_text">0%</label>
+    <input type="range" id="percentage" name="percentage" min="0" max="100" value="0" class="percentage">
+    
+  </div>
+
+<!-- Show the input color you choose -->
+  <div class="divs" id="div_input_color_box">
+    <p>Input Color</p>
+    <div id="input_color" class="box"></div>  
+  </div>
+
+  <!-- Show the altered color after percetage and lighten/darker -->
+  <div class="divs" id="div_altered_color_box">
+    <p>Altered Color</p>
+    <div id="altered_color" class="box"></div>
+  </div>
+
+</div> <!-- end div main container -->
 
 
   <script src="./script.js"></script>
