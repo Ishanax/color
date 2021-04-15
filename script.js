@@ -1,7 +1,10 @@
 
+const hexInput = document.getElementById("hex");
+const inputColor = document.getElementById("input_color");
 
-var hexInput = document.getElementById("hex");
-var inputColor = document.getElementById("input_color");
+//Control percentage on slider
+const percentage = document.getElementById('percentage');
+const percentageText = document.getElementById('percentage_text');
 
 hexInput.addEventListener('keyup', () => {
   const hex = hexInput.value;
@@ -10,6 +13,17 @@ hexInput.addEventListener('keyup', () => {
   const strippedHex = hex.replace('#', '');
   inputColor.style.backgroundColor = '#' + strippedHex;
 } )
+
+
+
+percentage.addEventListener('input', () => {
+  console.log(percentage.value);
+  percentageText.textContent = percentage.value;
+  // const showPercentage = percentage.value;
+  // return showPercentage;
+})
+
+
 
 //check to see if hex color input is valid:
 const checkHex = (hex) => {
@@ -38,8 +52,23 @@ const convertHextoRGB = (hex) => {
   return {r,g,b}
   
 }
-// console.log(convertHextoRGB("000"));
-// convertHextoRGB("123");
+// Convert RGB back to Hex:
+const convertRGBToHex = (r, g, b) => {
+
+  let stringR = ('0' + r.toString(16)).slice(-2);
+  let stringG = ('0' + g.toString(16)).slice(-2);
+  let stringB = ('0' + b.toString(16)).slice(-2);
+
+  let stringHex = '#' + stringR + stringG + stringB;
+
+  return stringHex;
+}
+
+
+
+
+
+
 
 
     
