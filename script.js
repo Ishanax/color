@@ -1,9 +1,10 @@
 
 const hexInput = document.getElementById("hex");
 const inputColor = document.getElementById("input_color");
-
+const alteredColor = document.getElementById("altered_color");
+const alteredColorText = document.getElementById("alteredColorText");
 //Control percentage on slider
-const percentage = document.getElementById('percentage');
+const slider = document.getElementById('percentage');
 const percentageText = document.getElementById('percentage_text');
 
 hexInput.addEventListener('keyup', () => {
@@ -13,17 +14,6 @@ hexInput.addEventListener('keyup', () => {
   const strippedHex = hex.replace('#', '');
   inputColor.style.backgroundColor = '#' + strippedHex;
 } )
-
-
-
-percentage.addEventListener('input', () => {
-  console.log(percentage.value);
-  percentageText.textContent = percentage.value;
-  // const showPercentage = percentage.value;
-  // return showPercentage;
-})
-
-
 
 //check to see if hex color input is valid:
 const checkHex = (hex) => {
@@ -64,6 +54,48 @@ const convertRGBToHex = (r, g, b) => {
   return stringHex;
 }
 
+// Make color a percentage lighter or darker
+const alterColor = (hex, percentage) => {
+  
+  //Convert hex value to rgb:
+  const {r,g,b} = convertHextoRGB(hex);
+    
+  //increase each r, g , b by percentage:
+    const amount = Math.floor((percentage/100) *255);  
+    const perR = increaseRange(r,amount);
+    const perG = increaseRange(g,amount);
+    const perB = increaseRange(b,amount);
+    
+    //convert r,g,b to hex:
+    return convertRGBToHex(perR, perG, perB);     
+}
+//Keep rgb between 0 and 255:
+const increaseRange = (hex, amount) => {
+  const newHex = hex + amount;
+  if(newHex > 255){
+    return 255;
+  }else if(newHex< 0){
+    return 0;
+  }
+  else {
+    return newHex;
+  }
+}
+
+slider.addEventListener('input', () => {
+  
+  //check if hex is valid:
+  if(!checkHex(hexInput.value)) return;
+  
+  //Change percentage number above slider:
+  percentageText.textContent = slider.value + '%';
+  //Get altered hex value: 
+  const alteredHex = alterColor(hexInput.value, slider.value);
+  //update Altered Color box:
+  alteredColor.style.backgroundColor = alteredHex;
+  alteredColorText.innerText = "Altered Color "
++ alteredHex;
+})
 
 
 

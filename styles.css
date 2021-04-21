@@ -62,8 +62,6 @@ input[type="text"]{
 
 /* THE TOGGLE */
 
-
-
 /* toggle in label designing */
 .toggle {
   position : relative ;
@@ -95,7 +93,7 @@ input[type="text"]{
       
 /* Checkbox cheked toggle label bg color */
 .checkbox:checked + .toggle {
-  background-color: grey;
+  background-color: #bcb8b1;
 }
       
 /* Checkbox vanished */
