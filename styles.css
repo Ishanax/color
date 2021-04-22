@@ -67,7 +67,7 @@ input[type="text"]{
 }
 
 .toggle_btn {
-  width: 4.5em;
+  width: 4em;
   height: 2.5em;
   background-color: grey;
   border-radius: 30px;
@@ -87,10 +87,8 @@ input[type="text"]{
 
 .toggle_btn.toggled > .inner_circle {
   transform: translateX(30px);
-  background-color: rgb(97, 95, 95);
+  background-color: rgb(75, 72, 72);
 }
-
-
 
 .unselected {
   opacity: .4;
