@@ -1,26 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
 
 
 body {
-  background-color: #eff1f3 ;
-  
+  display: grid;
+  height: 100%;
+  margin: 0;
+  font-family: 'Lato', sans-serif; 
+}
+html {
+  display: grid;
+  height: 100%;
+}
+
+.bg {
+  background-color: #E0C9CB;
 }
 
 .container {
-  background-color: #223843;
-  padding: 1rem;
-  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  background-color: #F5F5F5;
+  padding: 2em 0 2em 2em;
+  transform: translate(-50%, -50%);
+  
   color: white;
-  font-family:sans-serif; 
+  box-shadow: 5px 5px 15px #ba7e7ec2;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight:lighter;
+  width: 50%;
 }
 
+@media screen and (max-width: 600px) {
+ .container {
+   padding: 0;
+   width: 95%;
+   margin: 0.1em;
+ }
+}
 
 .title{
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.5em;
   font-weight: normal; 
-  color: rgb(167, 162, 162);
+  color: #4E4E4E;
   padding: .5rem;
   margin: .5rem;
 }
@@ -35,19 +60,21 @@ body {
 label {
   display: block;
   margin-bottom: .5rem;
+  color:  #BA7E7E;
+  letter-spacing: 1px;
 }
 
 p{
   margin-bottom: .5rem;
+  color: #BA7E7E;
+  letter-spacing: 1px;
 }
 
 input[type="text"]{
   padding: .35rem;
 }
 
-/* input[type="range"]{
-   different color?
-} */
+
 
 .box {
   height:3em;
@@ -90,3 +117,6 @@ input[type="text"]{
   opacity: .4;
 }
 
+#percentage {
+  color: brown;
+}
